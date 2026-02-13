@@ -1,126 +1,116 @@
-🚀 Kanban Board – Optimistic UI Demo
+# 🚀 Kanban Board – Optimistic UI Demo
 
-A clean, minimal, and responsive Kanban Board built with React.js + Tailwind CSS, demonstrating advanced frontend concepts like Optimistic UI updates, state rollback, and mock API simulation with random failures.
+A clean, minimal, and responsive **Kanban Board** built with **React.js + Tailwind CSS**, demonstrating advanced frontend concepts like **Optimistic UI updates**, **state rollback**, and **mock API simulation with random failures**.
 
-Live Demo: (Add your deployed link here)
-GitHub Repo: (Add your repo link here)
+🔗 **Live Demo:** (Add your deployed link here)  
+📂 **GitHub Repo:** https://github.com/chitsaindroka47/kanban-board  
 
-📌 Project Overview
+---
+
+## 📌 Project Overview
 
 This project simulates a real-world Kanban board application with:
 
-Mock Authentication (No backend)
-
-Drag & Drop Task Management
-
-Simulated Backend API with latency
-
-Optimistic UI updates
-
-Automatic rollback on failure
-
-Toast error notifications
+- Mock Authentication (No backend)
+- Drag & Drop Task Management
+- Simulated Backend API with latency
+- Optimistic UI updates
+- Automatic rollback on failure
+- Toast error notifications
 
 The primary focus of this project is demonstrating how to handle asynchronous state safely using optimistic updates and rollback mechanisms.
 
-🛠 Tech Stack
+---
 
-React.js (Vite)
+## 🛠 Tech Stack
 
-Tailwind CSS
+- **React.js (Vite)**
+- **Tailwind CSS**
+- **Zustand (State Management)**
+- **@dnd-kit (Drag & Drop)**
+- **JavaScript / TypeScript**
+- **LocalStorage** (Mock Auth persistence)
 
-Zustand (State Management)
+---
 
-@dnd-kit (Drag & Drop)
+## ✨ Features
 
-JavaScript / TypeScript
+### 1️⃣ Mock Authentication
 
-LocalStorage (Mock Auth persistence)
+- Accepts any non-empty username/email  
+- Login state stored in `localStorage`  
+- User remains logged in after refresh  
+- Logout functionality included  
 
-✨ Features
-1️⃣ Mock Authentication
+---
 
-Accepts any non-empty username/email
+### 2️⃣ Kanban Board
 
-Login state stored in localStorage
+#### Three Columns:
+- 📝 **To Do**
+- 🚧 **In Progress**
+- ✅ **Done**
 
-User remains logged in after refresh
+#### Each task includes:
+- Unique ID  
+- Title  
+- Status  
 
-Logout functionality included
+#### Supported actions:
+- Add Task  
+- Drag & Drop between columns  
+- Delete Task  
 
-2️⃣ Kanban Board
+---
 
-Three Columns:
+### 3️⃣ Mock API Simulation
 
-📝 To Do
+Every action (**Add, Move, Delete**) simulates a backend call with:
 
-🚧 In Progress
+- ⏳ 1–2 second delay  
+- ⚡ Instant UI update (Optimistic)  
+- ❌ 20% random failure rate  
 
-✅ Done
+---
 
-Each task includes:
+## ⚡ Optimistic UI Strategy
 
-Unique ID
+### What is Optimistic UI?
 
-Title
+Optimistic UI means updating the interface immediately before the server confirms the action.  
+This makes the app feel instant and responsive.
 
-Status
+### How It Works in This Project
 
-Supported actions:
+1. User performs an action (add/move/delete).  
+2. UI updates immediately.  
+3. Previous state is stored temporarily.  
+4. Mock API call is triggered.  
+5. If API succeeds → nothing changes.  
+6. If API fails → UI rolls back to previous state automatically.  
 
-Add Task
+---
 
-Drag & Drop between columns
-
-Delete Task
-
-3️⃣ Mock API Simulation
-
-Every action (Add, Move, Delete) simulates a backend call with:
-
-⏳ 1–2 second delay
-
-⚡ Instant UI update (Optimistic)
-
-❌ 20% random failure rate
-
-⚡ Optimistic UI Strategy
-What is Optimistic UI?
-
-Optimistic UI means updating the interface immediately before the server confirms the action. This makes the app feel instant and responsive.
-
-How It Works in This Project
-
-User performs an action (add/move/delete).
-
-UI updates immediately.
-
-Previous state is stored temporarily.
-
-Mock API call is triggered.
-
-If API succeeds → nothing changes.
-
-If API fails → UI rolls back to previous state automatically.
-
-🔁 Rollback Mechanism
+## 🔁 Rollback Mechanism
 
 To safely handle failures:
 
-The previous board state is saved before making changes.
+- The previous board state is saved before making changes.
+- If the mock API returns an error:
+  - Toast notification appears
+  - State is restored to the saved version
 
-If the mock API returns an error:
+### Example:
 
-Toast notification appears
+If a task is moved from **"In Progress" → "Done"**  
+And API fails →  
+The task automatically returns to **"In Progress"**.
 
-State is restored to the saved version
+---
 
-Example:
-If a task is moved from "In Progress" → "Done"
-And API fails →
-The task automatically returns to "In Progress".
+## 📂 Folder Structure
 
-📂 Folder Structure
+```bash
 src/
 │
 ├── components/       # UI Components
@@ -129,117 +119,116 @@ src/
 ├── utils/            # mockApi logic
 ├── hooks/            # Custom hooks
 ├── types/            # Type definitions (if TS)
+```
 
-💻 How to Run Locally
+---
 
-Clone the repository
+## 💻 How to Run Locally
 
-git clone https://github.com/your-username/kanban-board.git
+### 1️⃣ Clone the repository
 
+```bash
+git clone https://github.com/chitsaindroka47/kanban-board.git
+```
 
-Navigate into project
+### 2️⃣ Navigate into project
 
+```bash
 cd kanban-board
+```
 
+### 3️⃣ Install dependencies
 
-Install dependencies
-
+```bash
 npm install
+```
 
+### 4️⃣ Start development server
 
-Start development server
-
+```bash
 npm run dev
+```
 
+### 5️⃣ Open in browser
 
-Open in browser
-
+```
 http://localhost:5173
+```
 
-🚀 Deployment
+---
+
+## 🚀 Deployment
 
 This project is optimized for:
 
-Vercel
+- Vercel  
+- Netlify  
+- GitHub Pages  
 
-Netlify
+### For Vercel:
 
-GitHub Pages
-
-For Vercel:
-
-Push repo to GitHub
-
-Import project in Vercel
-
-Click Deploy
+1. Push repo to GitHub  
+2. Import project in Vercel  
+3. Click Deploy  
 
 No additional configuration required.
 
-🎯 Design Decisions & Trade-offs
-Why Zustand?
+---
+
+## 🎯 Design Decisions & Trade-offs
+
+### Why Zustand?
 
 Chosen for:
+- Simplicity  
+- Minimal boilerplate  
+- Easy rollback handling  
+- Lightweight compared to Redux  
 
-Simplicity
+### Why Optimistic Updates?
 
-Minimal boilerplate
+- Better UX  
+- Zero-latency feel  
+- Real-world SaaS pattern  
 
-Easy rollback handling
+### Trade-offs
 
-Lightweight compared to Redux
+- Mock API uses `setTimeout` instead of real backend  
+- No database persistence  
+- Drag library kept lightweight to avoid heavy UI frameworks  
 
-Why Optimistic Updates?
+---
 
-Better UX
+## 📱 Responsiveness
 
-Zero-latency feel
+- Fully responsive layout  
+- Works on desktop and mobile  
+- Clean minimal UI using Tailwind  
 
-Real-world SaaS pattern
+---
 
-Trade-offs
+## 🧠 What This Project Demonstrates
 
-Mock API uses setTimeout instead of real backend
+- Advanced state management  
+- Handling async operations safely  
+- Error handling patterns  
+- Production-style folder structure  
+- Real-world frontend architecture  
 
-No database persistence
+---
 
-Drag library kept lightweight to avoid heavy UI frameworks
+## 📌 Future Improvements
 
-📱 Responsiveness
+- Real backend integration  
+- User accounts  
+- Task editing  
+- Due dates & labels  
+- Animations refinement  
+- Dark mode toggle  
 
-Fully responsive layout
+---
 
-Works on desktop and mobile
+## 👨‍💻 Author
 
-Clean minimal UI using Tailwind
-
-🧠 What This Project Demonstrates
-
-Advanced state management
-
-Handling async operations safely
-
-Error handling patterns
-
-Production-style folder structure
-
-Real-world frontend architecture
-
-📌 Future Improvements
-
-Real backend integration
-
-User accounts
-
-Task editing
-
-Due dates & labels
-
-Animations refinement
-
-Dark mode toggle
-
-👨‍💻 Author
-
-Chitranjan Singh
-Frontend Developer | React Enthusiast
+**Chitranjan Singh**  
+Frontend Developer | React Enthusiast  
