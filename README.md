@@ -2,7 +2,7 @@
 
 A clean, minimal, and responsive **Kanban Board** built with **React.js + Tailwind CSS**, demonstrating advanced frontend concepts like **Optimistic UI updates**, **state rollback**, and **mock API simulation with random failures**.
 
-🔗 **Live Demo:** (Add your deployed link here)  
+🔗 **Live Demo:**[ (https://regrip-frontend-project.vercel.app/) ]
 📂 **GitHub Repo:** https://github.com/chitsaindroka47/kanban-board  
 
 ---
