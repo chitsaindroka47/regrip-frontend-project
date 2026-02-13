@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 14% 96%;
+    --foreground: 224 20% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 20% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 20% 12%;
+
+    --primary: 224 60% 48%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 92%;
+    --secondary-foreground: 224 20% 20%;
+
+    --muted: 220 14% 94%;
+    --muted-foreground: 220 10% 46%;
+
+    --accent: 220 14% 90%;
+    --accent-foreground: 224 20% 12%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 14% 89%;
+    --input: 220 14% 89%;
+    --ring: 224 60% 48%;
+
+    --radius: 0.5rem;
+
+    --column-todo: 220 14% 94%;
+    --column-progress: 220 14% 94%;
+    --column-done: 220 14% 94%;
+
+    --column-todo-accent: 224 60% 48%;
+    --column-progress-accent: 38 92% 50%;
+    --column-done-accent: 142 71% 45%;
+
+    --toast-success: 142 71% 45%;
+    --toast-error: 0 72% 51%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 224 20% 8%;
+    --foreground: 220 14% 96%;
+
+    --card: 224 18% 12%;
+    --card-foreground: 220 14% 96%;
+
+    --popover: 224 18% 12%;
+    --popover-foreground: 220 14% 96%;
+
+    --primary: 224 60% 56%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 224 16% 18%;
+    --secondary-foreground: 220 14% 90%;
+
+    --muted: 224 16% 16%;
+    --muted-foreground: 220 10% 56%;
+
+    --accent: 224 16% 20%;
+    --accent-foreground: 220 14% 96%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 224 16% 18%;
+    --input: 224 16% 18%;
+    --ring: 224 60% 56%;
+
+    --column-todo: 224 16% 14%;
+    --column-progress: 224 16% 14%;
+    --column-done: 224 16% 14%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer utilities {
+  .kanban-column {
+    @apply rounded-xl p-3 min-h-[200px];
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+  }
+
+  .task-card {
+    @apply rounded-lg p-3 cursor-grab active:cursor-grabbing transition-all duration-200;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 1px 3px 0 hsl(var(--foreground) / 0.04);
+  }
+
+  .task-card:hover {
+    box-shadow: 0 4px 12px -2px hsl(var(--foreground) / 0.08);
+    border-color: hsl(var(--ring) / 0.3);
+  }
+
+  .task-card-dragging {
+    box-shadow: 0 12px 28px -4px hsl(var(--foreground) / 0.15);
+    @apply opacity-90 scale-105 rotate-1;
+  }
+
+  .drop-indicator {
+    @apply rounded-xl transition-colors duration-200;
+    border: 2px dashed hsl(var(--ring) / 0.4);
+    background: hsl(var(--ring) / 0.05);
+  }
+}
